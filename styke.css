@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+main{
+    background: yellow;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-content: center;
+}
+section{
+    border: 1px solid black;
+}
