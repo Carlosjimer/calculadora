@@ -49,6 +49,10 @@ h1{
     margin: auto;
 }
 #display{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
     background: blue;
     height: 81%;
     width: 80%;
@@ -59,9 +63,11 @@ h1{
 #display_top{
     background: salmon;
     width: 95%;
-    height: 5%;
+    height: 15%;
 }
 #display_bottom{
-    border: 1px solid yellow;
-    width: 85%;
+    margin: .2rem 0;
+    background: red;
+    width: 95%;
+    height: 70%;
 }
