@@ -5,14 +5,14 @@
 header{
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
 }
 main{
     background: yellow;
     display: flex;
     height: 100vh;
     justify-content: center;
-    align-content: center;
+    align-items: center;
 }
 section{
     border: 1px solid black;
@@ -20,6 +20,7 @@ section{
     flex-flow: column;
     align-content: center;
     height: 27rem;
+    width: 17rem;
 }
 #model{
 
@@ -70,4 +71,27 @@ h1{
     background: red;
     width: 95%;
     height: 70%;
+}
+#keyboard{
+    background: blue;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+#keyboard_top{
+    margin:.8em 0;
+    background: salmon;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+#keyboard_main{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:.5em .8em;
+    margin-top: .2em;
+    & button{
+        font-size: 1.5em;
+    }
 }
