@@ -69,10 +69,9 @@ h1{
 }
 #display_top{
     width: 95%;
-    height: 15%;
+    height: 14%;
 }
 #display_bottom{
-    margin: .2rem 0;
     width: 95%;
     height: 70%;
 }
@@ -95,6 +94,9 @@ h1{
         width: 3em;
         padding: .2em .3em;
     }
+}
+#ac{
+    background: red;
 }
 #keyboard_main{
     display: grid;
