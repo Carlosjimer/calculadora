@@ -103,6 +103,9 @@ h1{
     & #ac, #c{
         background: red;
     }
+    & #sum{
+        grid-area: 4/4/6/5;
+    }
     & button{
         border-radius: .2em;
         font-size: 1.5rem;
