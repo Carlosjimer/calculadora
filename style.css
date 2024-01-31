@@ -16,7 +16,8 @@ main{
     align-items: center;
 }
 section{
-    background: rgb(180, 178, 178);
+    background:rgb(202, 202, 202);
+    box-shadow: inset 1.2px 1.2px 4px black;
     color:black;
     border: 1px solid black;
     border-radius: 1em;
