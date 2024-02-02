@@ -24,7 +24,7 @@ section{
     display: flex;
     flex-flow: column;
     align-content: center;
-    height: 27rem;
+    height: 28rem;
     width: 17rem;
 }
 #model{
@@ -74,6 +74,8 @@ h1{
 #display_bottom{
     width: 95%;
     height: 70%;
+    font-size: 3.5em;
+    text-align: right;
 }
 #keyboard{
     display: flex;
@@ -112,4 +114,7 @@ h1{
         color:white;
         background: black;
     }
+}
+.oculto{
+    visibility: hidden;
 }
