@@ -4,7 +4,12 @@ const display_top = document.getElementById('display_top');
 const display_bottom = document.getElementById('display_bottom');
 const save = document.getElementById('m+');
 const remove = document.getElementById('m-');
+const number = document.getElementsByClassName('number');
 const memory = 'MEMORY';
+
+number.addEventListener('click', () => {
+    console.log(number.textContent);
+})
 
 save.addEventListener('click', () => {
     console.log('memory save');
