@@ -6,6 +6,8 @@ const save = document.getElementById('m+');
 const remove = document.getElementById('m-');
 const number = document.querySelectorAll('.number');
 const operation = document.querySelectorAll('.op');
+let internal;
+let internalClear;
 
 
 
@@ -15,11 +17,14 @@ number.forEach(pulsado => {
     const print = pulsado.textContent;
     if(display_bottom.textContent === '0'){
         display_bottom.textContent = print;
-
     }else{
         display_bottom.textContent += print;
     }
+    internal += print;
+    internalClear = internal.substring(9)
+    console.log(internalClear);
     })
+    
 });
 
 operation.forEach(oper => {
