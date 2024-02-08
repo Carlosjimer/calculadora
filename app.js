@@ -8,6 +8,7 @@ const number = document.querySelectorAll('.number');
 const operation = document.querySelectorAll('.op');
 let internal;
 let internalClear;
+let singClear;
 
 
 
@@ -21,18 +22,19 @@ number.forEach(pulsado => {
         display_bottom.textContent += print;
     }
     internal += print;
-    internalClear = internal.substring(9)
+    internalClear = internal.substring(9);
     console.log(internalClear);
     })
-    
 });
 
-operation.forEach(oper => {
+operation.forEach(oper => {//cuando se pulsa un operador hacer que solo guarde el ultimo pulsado
     oper.addEventListener('click', () => {
         const sing = oper.textContent;
-        console.log(sing);
+        singClear = sing.slice(sing.length-1);
+        internalClear += singClear;
+        console.log(internalClear);
     })
-})
+});
 
 
 save.addEventListener('click', () => {
