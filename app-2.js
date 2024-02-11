@@ -5,6 +5,7 @@ const display_bottom = document.getElementById('display_bottom');
 const button = document.querySelectorAll('button');
 let internal;
 
+
 button.forEach(buttons => {
     buttons.addEventListener('click', () => {
         const print = buttons.textContent;
@@ -15,21 +16,31 @@ button.forEach(buttons => {
         }
 
         if(buttons.id === "equal"){
-            display_bottom.textContent = eval(display_bottom.textContent);
+            internal += display_bottom.textContent; 
+            let internalClear = internal.slice(9);
+            display_bottom.textContent = eval(internalClear);
             return;
         }
 
-        //Solucionar 'Undefined y hacer que continue las operaciones en pantalla'
+        //Hacer que continue las operaciones en pantalla'
 
         if(buttons.className === "button op"){
             internal += display_bottom.textContent + print;
-            console.log(internal);
+            display_bottom = display_bottom.slice(-1);
+            let internalClear = internal.slice(9);
+            console.log(internalClear);
         }
 
+
+        //no funciona con mas de una operacion o con nuemros de mas de una cifra
         if(display_bottom.textContent === '0'){
             display_bottom.textContent = print;
         }else{
+            if(internal.slice(-1) === '+'){
+                display_bottom.textContent = print;
+            }else{
             display_bottom.textContent += print;
+            }
         }
     })
 })
