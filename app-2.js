@@ -6,6 +6,7 @@
 const display_top = document.getElementById('display_top');
 const display_bottom = document.getElementById('display_bottom');
 const button = document.querySelectorAll('button');
+const sum = document.getElementById('sum');
 let internal;
 
 
@@ -28,20 +29,24 @@ button.forEach(buttons => {
         //Hacer que continue las operaciones en pantalla'
 
         if(buttons.className === "button op"){
-            internal += print;
+            if(buttons.id === 'sum'){
+                internal += '+';
+            }
             console.log(internal.slice(9), internal.slice(-1));
         }
 
 
         //no funciona con mas de una operacion o con nuemros de mas de una cifra
         if(buttons.className === "button number"){
-            internal += print;
-            console.log(internal.slice(9), internal.slice(-1));
-            if(display_bottom.textContent === '0' || internal.endsWith('+')){
+            
+            //console.log(internal.slice(9), typeof(internal.slice(-1)));
+            
+            if(display_bottom.textContent === '0' || typeof(internal.slice(-1)) != 'string'){
                 display_bottom.textContent = print;
-            }else if(display_bottom.textContent != '0'){
+            }else{
                 display_bottom.textContent += print;
             }
+            internal += print;
         }
     })
 })
