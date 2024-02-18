@@ -1,8 +1,5 @@
 'use strict'
 
-
-// crear otra rama y añadir cada uno de los tipos de botones a variables.
-
 const display_top = document.getElementById('display_top');
 const display_bottom = document.getElementById('display_bottom');
 const button = document.querySelectorAll('button');
