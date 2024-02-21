@@ -24,6 +24,7 @@ button.forEach(buttons => {
         }
 
         if(buttons.id === "equal"){
+            internal += display_bottom.textContent;
             if(internal.includes('u')){
                 let internalClear = internal.slice(9);
                 console.log(internalClear);
@@ -38,6 +39,7 @@ button.forEach(buttons => {
         //que solo quede la ultima operacion pulsada
 
         if(buttons.className === "button op"){
+            internal += display_bottom.textContent;
             if(buttons.id === 'sum'){
                 internal += '+';
             }else if(buttons.id === 'subtr'){
@@ -47,19 +49,17 @@ button.forEach(buttons => {
             }else if(buttons.id === 'divi'){
                 internal += '/';
             }
-            console.log(internal.slice(9), internal.slice(-1));
+            console.log(internal.slice(9));
         }
 
 
         if(buttons.className === "button number"){
             
-            if(display_bottom.textContent === '0' || internal.slice(-1) === '+' || internal.slice(-1) === '-' || internal.slice(-1) === 'x' || internal.slice(-1) === '+'){
+            if(display_bottom.textContent === '0' || internal.slice(-1) === '+' || internal.slice(-1) === '-' || internal.slice(-1) === 'x' || internal.slice(-1) === '/'){
                 display_bottom.textContent = print;
             }else{
                 display_bottom.textContent += print;
             }
-            internal += print;
-            console.log(internal.slice(9));
         }
     })
 })
