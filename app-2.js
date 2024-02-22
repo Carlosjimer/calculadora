@@ -6,7 +6,6 @@ const button = document.querySelectorAll('button');
 const sum = document.getElementById('sum');
 let internal ='';
 
-// quitar el guardado en internal de los numeros pulsados, solo guardar al pulsar operaciones o igual.
 button.forEach(buttons => {
     buttons.addEventListener('click', () => {
         const print = buttons.textContent;
@@ -17,7 +16,6 @@ button.forEach(buttons => {
             return;
         }
 
-        // solo borrar pantalla para continuar operaciones con internal. borrar todo hasta la op en internal
         if(buttons.id === "c"){
             display_bottom.textContent = '0';
             return;
@@ -38,11 +36,10 @@ button.forEach(buttons => {
             console.log(internal);
         }
 
-        //que solo quede la ultima operacion pulsada y que despues de pulsar igual podamos seguir operando.
 
         if(buttons.className === "button op"){
             if(internal === ''){
-                internal = display_bottom;
+                internal = display_bottom.textContent;
                 if(buttons.id === 'sum'){
                     internal += '+';
                 }else if(buttons.id === 'subtr'){
@@ -51,6 +48,25 @@ button.forEach(buttons => {
                     internal += '*';
                 }else if(buttons.id === 'divi'){
                     internal += '/';
+                }else if(buttons.id === 'porcent'){
+                    internal += '/100 *';
+                }else if(buttons.id === 'root'){
+                    display_bottom.textContent = Math.sqrt(display_bottom.textContent);
+                }
+            }else if(internal.slice(-1) === '+' || internal.slice(-1) === '-' || internal.slice(-1) === '*' || internal.slice(-1) === '/'){
+                internal = internal.substring(0, internal.length - 1);
+                if(buttons.id === 'sum'){
+                    internal += '+';
+                }else if(buttons.id === 'subtr'){
+                    internal += '-';
+                }else if(buttons.id === 'multi'){
+                    internal += '*';
+                }else if(buttons.id === 'divi'){
+                    internal += '/';
+                }else if(buttons.id === 'porcent'){
+                    internal += '/100 *';
+                }else if(buttons.id === 'root'){
+                    display_bottom.textContent = Math.sqrt(display_bottom.textContent);
                 }
             }else{
                 if(buttons.id === 'sum'){
@@ -61,17 +77,23 @@ button.forEach(buttons => {
                     internal += '*';
                 }else if(buttons.id === 'divi'){
                     internal += '/';
+                }else if(buttons.id === 'porcent'){
+                    internal += '/100 *';
+                }else if(buttons.id === 'root'){
+                    display_bottom.textContent = Math.sqrt(display_bottom.textContent);
                 }
-            console.log(internal)//.slice(9));
+            console.log(internal);
             }
         }
 
 
         if(buttons.className === "button number"){
             
-            if(display_bottom.textContent === '0' || internal.slice(-1) === '+' || internal.slice(-1) === '-' || internal.slice(-1) === 'x' || internal.slice(-1) === '/'){
+            if(display_bottom.textContent === '0' || internal.slice(-1) === '+' || internal.slice(-1) === '-' || internal.slice(-1) === '*' || internal.slice(-1) === '/'){
                 display_bottom.textContent = print;
                 internal += print;
+            }else if(internal === '' && display_bottom.textContent != '0'){
+                display_bottom.textContent = print;
             }else{
                 display_bottom.textContent += print;
                 internal += print;
