@@ -10,6 +10,18 @@ button.forEach(buttons => {
     buttons.addEventListener('click', () => {
         const print = buttons.textContent;
 
+        if(buttons.id === 'off'){
+            display_bottom.textContent = ''
+            internal = '0';
+        }
+
+        if(buttons.id === 'm+'){}
+
+        if(buttons.id === 'm-'){}
+
+        if(buttons.id === 'mrc'){}
+
+
         if(buttons.id === "ac"){
             display_bottom.textContent = '0';
             internal = '';
@@ -96,7 +108,11 @@ button.forEach(buttons => {
                 display_bottom.textContent = print;
             }else{
                 display_bottom.textContent += print;
+                if(internal === '0'){
+                    internal = print;
+                }else{
                 internal += print;
+                }
             }
             console.log(internal);
         }
