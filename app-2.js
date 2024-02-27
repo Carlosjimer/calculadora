@@ -24,6 +24,8 @@ button.forEach(buttons => {
 El boton M+ guarda en localStorage el contenido del display para que continue presente aun apando la calculadora.
 Además modificara la clase en CSS del elemento display_top para que aparezca cuando tengamos algún numero guardado.
 */
+
+//FALTA VISUALIZAR DISPLAY_TOP Y LUEGO OCULTARLO.
         if(buttons.id === 'm+'){
             localStorage.setItem('mem', display_bottom.textContent);
             console.log(localStorage.getItem('mem'));
