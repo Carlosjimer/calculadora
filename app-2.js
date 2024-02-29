@@ -16,6 +16,7 @@ button.forEach(buttons => {
 
 //El boton OFF apaga la pantalla y reinicia la constante internal.
         if(buttons.id === 'off'){
+            display_top.classList.add('oculto');
             display_bottom.textContent = ''
             internal = '0';
         }
