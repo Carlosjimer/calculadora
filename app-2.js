@@ -21,21 +21,22 @@ button.forEach(buttons => {
         }
 
 /*
-El boton M+ guarda en localStorage el contenido del display para que continue presente aun apando la calculadora.
+El botón M+ guarda en localStorage el contenido del display para que continue presente aun apando la calculadora.
 Además modificara la clase en CSS del elemento display_top para que aparezca cuando tengamos algún numero guardado.
 */
-
-//FALTA VISUALIZAR DISPLAY_TOP Y LUEGO OCULTARLO.
         if(buttons.id === 'm+'){
             localStorage.setItem('mem', display_bottom.textContent);
+            display_top.classList.remove('oculto');
             console.log(localStorage.getItem('mem'));
         }
 
+// El botón M- borra el localStorage
         if(buttons.id === 'm-'){
             localStorage.clear();
-            display_bottom.textContent = 0;
+            display_top.classList.add('oculto');
         }
 
+// El botón MRC mostrará la cifra guardada en la memoria, en caso de no tener nada guardado mostrará el valor de 0.
         if(buttons.id === 'mrc'){
             if(localStorage.getItem('mem') === null){
                 display_bottom.textContent = 0;
@@ -46,13 +47,14 @@ Además modificara la clase en CSS del elemento display_top para que aparezca cu
             }
         }
 
-
+//El botón AC devuelve a 0 el display, además elimina los valores de operaciones anteriores.
         if(buttons.id === "ac"){
             display_bottom.textContent = '0';
             internal = '';
             return;
         }
 
+//El botón C elimina el contenido del display, además lo borra de la memoria interna para que las operaciones puedan continuarse.
         if(buttons.id === "c"){
             internal = internal.slice(0, - display_bottom.textContent.length);
             display_bottom.textContent = '0';
@@ -60,24 +62,16 @@ Además modificara la clase en CSS del elemento display_top para que aparezca cu
             return;
         }
 
+//El botón = evalúa la memoria interna y la muestra en display. El valor queda almacenado por si se quiere continuar operando.
         if(buttons.id === "equal"){
-            if(internal === ''){
-                /*(internal.includes('u')){
-                let internalClear = internal.slice(9);
-                console.log(internalClear);
-                display_bottom.textContent = eval(internalClear);
-                internal = display_bottom.textContent;*/
-            }else{
-                display_bottom.textContent = eval(internal);
-                internal = display_bottom.textContent;
-            }
-            internal = '';
+            display_bottom.textContent = eval(internal);
+            internal = display_bottom.textContent;
             console.log(internal);
         }
 
-
+//Se recorren los botones de la clase op y en función de la operación que representan se trabaja en la memoria interna.
         if(buttons.className === "button op"){
-            if(internal === ''){
+            /*if(internal === ''){
                 internal = display_bottom.textContent;
                 if(buttons.id === 'sum'){
                     internal += '+';
@@ -92,7 +86,7 @@ Además modificara la clase en CSS del elemento display_top para que aparezca cu
                 }else if(buttons.id === 'root'){
                     display_bottom.textContent = Math.sqrt(display_bottom.textContent);
                 }
-            }else if(internal.slice(-1) === '+' || internal.slice(-1) === '-' || internal.slice(-1) === '*' || internal.slice(-1) === '/'){
+            }else*/ if(internal.slice(-1) === '+' || internal.slice(-1) === '-' || internal.slice(-1) === '*' || internal.slice(-1) === '/'){
                 internal = internal.substring(0, internal.length - 1);
                 if(buttons.id === 'sum'){
                     internal += '+';
