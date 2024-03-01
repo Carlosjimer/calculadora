@@ -67,12 +67,13 @@ Además modificara la clase en CSS del elemento display_top para que aparezca cu
         if(buttons.id === "equal"){
             display_bottom.textContent = eval(internal);
             internal = display_bottom.textContent;
+            internal = '';
             console.log(internal);
         }
 
 //Se recorren los botones de la clase op y en función de la operación que representan se trabaja en la memoria interna.
         if(buttons.className === "button op"){
-            /*if(internal === ''){
+            if(internal === ''){
                 internal = display_bottom.textContent;
                 if(buttons.id === 'sum'){
                     internal += '+';
@@ -87,7 +88,7 @@ Además modificara la clase en CSS del elemento display_top para que aparezca cu
                 }else if(buttons.id === 'root'){
                     display_bottom.textContent = Math.sqrt(display_bottom.textContent);
                 }
-            }else*/ if(internal.slice(-1) === '+' || internal.slice(-1) === '-' || internal.slice(-1) === '*' || internal.slice(-1) === '/'){
+            }else if(internal.slice(-1) === '+' || internal.slice(-1) === '-' || internal.slice(-1) === '*' || internal.slice(-1) === '/'){
                 internal = internal.substring(0, internal.length - 1);
                 if(buttons.id === 'sum'){
                     internal += '+';
