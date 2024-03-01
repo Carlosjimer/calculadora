@@ -129,6 +129,7 @@ Además modificara la clase en CSS del elemento display_top para que aparezca cu
                 internal += print;
             }else if(internal === '' && display_bottom.textContent != '0'){
                 display_bottom.textContent = print;
+                internal += print;
             }else{
                 display_bottom.textContent += print;
                 if(internal === '0'){
