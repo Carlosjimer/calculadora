@@ -6,8 +6,14 @@ const button = document.querySelectorAll('button');
 const sum = document.getElementById('sum');
 
 //Variante que se utilizará para realizar las operaciones sin que aparezcan en pantalla.
-let internal ='';
+let internal = '';
+console.log(internal);
 
+if(internal != undefined && internal != ''){
+    display_top.classList.remove('oculto');
+}
+
+//internal ='';
 
 //Se recorren todos los botones agregando el evento click para su posterior ejecución.
 button.forEach(buttons => {
