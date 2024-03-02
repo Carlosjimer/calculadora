@@ -116,6 +116,6 @@ h1{
         background: black;
     }
 }
-.oculto{
+.oculto, .off{
     visibility: hidden;
 }

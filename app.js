@@ -13,10 +13,11 @@ let internal ='';
 button.forEach(buttons => {
     buttons.addEventListener('click', () => {
         const print = buttons.textContent;
+        display_top.classList.remove('off');
 
 //El boton OFF apaga la pantalla y reinicia la constante internal.
         if(buttons.id === 'off'){
-            display_top.classList.add('oculto');
+            display_top.classList.add('off');
             display_bottom.textContent = ''
             internal = '0';
         }
