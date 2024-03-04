@@ -4,12 +4,14 @@ const display_top = document.getElementById('display_top');
 const display_bottom = document.getElementById('display_bottom');
 const button = document.querySelectorAll('button');
 const sum = document.getElementById('sum');
+const mem = localStorage.getItem('mem');
+console.log(mem);
 
 //Variante que se utilizará para realizar las operaciones sin que aparezcan en pantalla.
 let internal = '';
 console.log(internal);
 
-if(internal != undefined && internal != ''){
+if(mem != null){
     display_top.classList.remove('oculto');
 }
 
@@ -32,7 +34,7 @@ button.forEach(buttons => {
 El botón M+ guarda en localStorage el contenido del display para que continue presente aun apando la calculadora.
 Además modificara la clase en CSS del elemento display_top para que aparezca cuando tengamos algún numero guardado.
 */
-        if(buttons.id === 'm+'){
+        if(buttons.id === 'm+' && display_bottom.textContent != '0'){
             localStorage.setItem('mem', display_bottom.textContent);
             display_top.classList.remove('oculto');
             console.log(localStorage.getItem('mem'));
